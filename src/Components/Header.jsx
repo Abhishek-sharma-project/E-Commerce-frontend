@@ -12,12 +12,7 @@ const Header = () => {
     <header>
       <div className="logo_container">
         <Link to="/">
-          {/* <img
-            className="myntra_home"
-            src="images/myntra_logo.webp"
-            alt="Myntra Home"
-          /> */}
-          <span class="shopping-text">Shopping</span>
+          <span className="shopping-text">Shopping</span>
         </Link>
       </div>
 
