@@ -19,7 +19,7 @@ const FetchItems = () => {
       .then(({ items }) => {
         dispatch(fetchStatusActions.markFetchDone());
         dispatch(fetchStatusActions.markFetchingFinished());
-        dispatch(itemsActions.addInitialItems(items)); // [0] hatao, pura array lo
+        dispatch(itemsActions.addInitialItems(items));
       })
       .catch((err) => {
         if (err.name !== "AbortError") {

@@ -18,8 +18,11 @@ const HomeItem = ({ item }) => {
     <div className="item-container">
       <img className="item-image" src={item.image} alt="item image" />
 
-      <div className="rating">
+      {/* <div className="rating">
         ${item.rating.stars} ⭐ | ${item.rating.count}
+      </div> */}
+      <div className="rating">
+        {item?.rating?.stars ?? 0} ⭐ | {item?.rating?.count ?? 0}
       </div>
 
       <div className="company-name">{item.company}</div>
