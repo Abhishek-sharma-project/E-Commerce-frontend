@@ -10,20 +10,25 @@ const FetchItems = () => {
   useEffect(() => {
     if (fetchStatus.fetchDone) return;
 
-    const Controller = new AbortController();
-    const signal = Controller.signal;
+    const controller = new AbortController();
+    const signal = controller.signal;
 
     dispatch(fetchStatusActions.markFetchingStarted());
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/items`, { signal })
+    fetch(`${import.meta.env.VITE_BACKEND_URL}items`, { signal })
       .then((res) => res.json())
       .then(({ items }) => {
         dispatch(fetchStatusActions.markFetchDone());
         dispatch(fetchStatusActions.markFetchingFinished());
-        dispatch(itemsActions.addInitialItems(items[0]));
+        dispatch(itemsActions.addInitialItems(items)); // [0] hatao, pura array lo
+      })
+      .catch((err) => {
+        if (err.name !== "AbortError") {
+          console.error("Fetch error:", err);
+        }
       });
 
     return () => {
-      Controller.abort();
+      controller.abort();
     };
   }, [fetchStatus]);
 
