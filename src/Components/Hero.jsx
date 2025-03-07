@@ -1,10 +1,13 @@
-const HeroSection = () => {
+const Hero = () => {
+  const handleScroll = () => {
+    window.scrollBy({ top: 400, behavior: "smooth" });
+  };
   return (
     <section className="hero">
       <div className="hero-content">
         <h1>Biggest Sale of the Year!</h1>
         <p>Flat 50% Off on All Products - Limited Time Offer</p>
-        <button className="button">
+        <button className="button" onClick={handleScroll}>
           Shop Now
           <svg fill="currentColor" viewBox="0 0 24 24" className="icon">
             <path
@@ -18,4 +21,4 @@ const HeroSection = () => {
     </section>
   );
 };
-export default HeroSection;
+export default Hero;

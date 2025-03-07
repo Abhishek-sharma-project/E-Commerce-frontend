@@ -236,8 +236,8 @@ header {
 }
 
 .hero {
-    height: 80vh;
-    background: url('images/heroSection.jpg');
+    height: 60vh;
+    background-color: lightblue;
     display: flex;
     align-items: center;
     justify-content: center;
